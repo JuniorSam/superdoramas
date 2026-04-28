@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Super Doramas – Organize sua Biblioteca de K-Dramas e C-Dramas em um só Lugar</title>
+  <meta name="description" content="Super Doramas é o melhor organizador e tracker de Doramas Online. Gerencie sua biblioteca de K-Dramas, C-Dramas, Doramas Coreanos e Chineses, marque episódios, ganhe XP, crie listas e descubra onde assistir seus doramas favoritos." />
+  <meta name="keywords" content="Doramas Online, Super Doramas, Doramas Chineses, Doramas Coreanos, K-Dramas, C-Dramas, Thai Drama, F-Drama, Download Doramas, assistir doramas, tracker de doramas, organizador de doramas, chat de doramas, biblioteca k-drama" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#7C3AED" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="preload" as="image" href="app_mockup.webp" fetchpriority="high" />
+  <link rel="canonical" href="https://www.superdoramas.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Super Doramas – Sua Biblioteca Definitiva de K-Dramas e C-Dramas" />
+  <meta property="og:description" content="Organize, rastreie e descubra Doramas Online. Biblioteca pessoal, tracker de episódios, sistema de XP, VIP e ranking de atores. Tudo para o dorameiro de verdade." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.superdoramas.com/" />
+  <meta property="og:image" content="https://www.superdoramas.com/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Super Doramas – Sua Biblioteca Definitiva de K-Dramas e C-Dramas" />
+  <meta name="twitter:description" content="Organize, rastreie e descubra Doramas Online. Tracker de episódios, XP, VIP e ranking de atores." />
+  <meta name="twitter:image" content="https://www.superdoramas.com/og-image.jpg" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Super Doramas",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "Android",
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.superdoramas.biblioteca",
+    "softwareVersion": "2.0.0",
+    "datePublished": "2026-01-01",
+    "description": "Organizador e tracker de Doramas Online com sistema de XP, VIP e comunidade integrada.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "12400" }
+  }
+  </script>
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="styles.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" /></noscript>
+
+  <style>
+    :root {
+      --purple: #7C3AED;
+      --purple-light: #A78BFA;
+      --blue: #2563EB;
+      --bg: #0A0A16;
+      --bg2: #07070F;
+      --card: #111124;
+      --card2: #0E0E20;
+      --border: #1A1A35;
+      --border2: rgba(124,58,237,0.2);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--bg); color: #E2E8F0; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 99px; }
+
+    /* ── Gradients ── */
+    .gradient-text {
+      background: linear-gradient(135deg, #C084FC 0%, #818CF8 50%, #60A5FA 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .gradient-text-gold {
+      background: linear-gradient(135deg, #F59E0B 0%, #FDE68A 50%, #F59E0B 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .bg-cta { background: linear-gradient(135deg, #7C3AED, #2563EB); }
+    .bg-cta-gold { background: linear-gradient(135deg, #B45309, #F59E0B, #FDE68A, #F59E0B, #92400E); }
+
+    /* ── Glows ── */
+    .glow-purple { box-shadow: 0 0 60px rgba(124,58,237,0.4), 0 0 120px rgba(124,58,237,0.15); }
+    .glow-blue   { box-shadow: 0 0 60px rgba(37,99,235,0.4),  0 0 120px rgba(37,99,235,0.15); }
+    .glow-gold   { box-shadow: 0 0 40px rgba(245,158,11,0.5), 0 0 80px rgba(245,158,11,0.2); }
+    .text-glow   { text-shadow: 0 0 60px rgba(124,58,237,0.4); }
+
+    /* ── App screenshot ── */
+    .app-wrap {
+      position: relative; display: inline-block;
+      border-radius: 1.5rem; overflow: hidden;
+    }
+    .app-wrap img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 1.5rem; }
+    .app-wrap::after {
+      content: ''; position: absolute; inset: 0; border-radius: 1.5rem;
+      background: linear-gradient(160deg, rgba(255,255,255,0.06) 0%, rgba(124,58,237,0.05) 40%, rgba(0,0,0,0.2) 100%);
+      border: 1px solid rgba(124,58,237,0.2); pointer-events: none;
+    }
+    .app-glow-purple { box-shadow: 0 0 0 1px rgba(124,58,237,0.25), 0 0 50px rgba(124,58,237,0.5), 0 0 100px rgba(124,58,237,0.2); }
+    .app-glow-blue   { box-shadow: 0 0 0 1px rgba(37,99,235,0.25),   0 0 50px rgba(37,99,235,0.45),  0 0 100px rgba(37,99,235,0.15); }
+    .app-glow-gold   { box-shadow: 0 0 0 1px rgba(245,158,11,0.3),   0 0 50px rgba(245,158,11,0.45), 0 0 100px rgba(245,158,11,0.15); }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 1.25rem; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(124,58,237,0.18); border-color: rgba(124,58,237,0.3); }
+
+    .card-vip {
+      background: linear-gradient(135deg, rgba(180,83,9,0.15) 0%, rgba(245,158,11,0.08) 50%, rgba(146,64,14,0.15) 100%);
+      border: 1px solid rgba(245,158,11,0.25);
+    }
+    .card-vip:hover { box-shadow: 0 20px 60px rgba(245,158,11,0.2); border-color: rgba(245,158,11,0.45); }
+
+    /* ── Buttons ── */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.625rem; padding: 0.875rem 2rem; border-radius: 0.875rem; font-weight: 700; font-size: 0.9375rem; transition: all 0.3s ease; cursor: pointer; text-decoration: none; }
+    .btn-primary { background: linear-gradient(135deg, #7C3AED, #2563EB); color: white; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(124,58,237,0.45); filter: brightness(1.1); }
+    .btn-outline { background: rgba(124,58,237,0.08); color: white; border: 1px solid var(--border); }
+    .btn-outline:hover { background: rgba(124,58,237,0.18); transform: translateY(-2px); border-color: rgba(124,58,237,0.4); }
+    .btn-gold { background: linear-gradient(135deg, #92400E, #F59E0B, #FDE68A, #F59E0B, #78350F); color: #1C0A00; }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(245,158,11,0.45); filter: brightness(1.05); }
+
+    /* ── Nav ── */
+    .nav-link { transition: color 0.2s; }
+    .nav-link:hover { color: #C084FC; }
+
+    /* ── Badges ── */
+    .badge-new { animation: pulse-badge 2.5s ease-in-out infinite; }
+    @keyframes pulse-badge { 0%,100%{opacity:1} 50%{opacity:0.55} }
+
+    /* ── Rank pills ── */
+    .rank-bronze  { background: linear-gradient(135deg,#CD7F32,#8B4513); }
+    .rank-silver  { background: linear-gradient(135deg,#C0C0C0,#808080); }
+    .rank-gold    { background: linear-gradient(135deg,#FFD700,#B8860B); }
+    .rank-plat    { background: linear-gradient(135deg,#E5E4E2,#A0A0A0); }
+    .rank-diamond { background: linear-gradient(135deg,#B9F2FF,#6CA0DC); }
+
+    /* ── Section divider ── */
+    .divider { background: linear-gradient(90deg,transparent,rgba(124,58,237,0.4),rgba(37,99,235,0.3),transparent); height: 1px; }
+
+    /* ── Star ── */
+    .star { color: #F59E0B; }
+
+    /* ── XP Bar ── */
+    .xp-bar-track { background: rgba(255,255,255,0.08); border-radius: 99px; overflow: hidden; height: 6px; }
+    .xp-bar-fill  { background: linear-gradient(90deg,#7C3AED,#60A5FA); border-radius: 99px; height: 100%; }
+
+    /* ── Shimmer placeholder ── */
+    .shimmer {
+      background: linear-gradient(135deg,#0E0E22 0%,#171730 50%,#0E0E22 100%);
+      position: relative; overflow: hidden;
+    }
+    .shimmer::after {
+      content:''; position:absolute; inset:0;
+      background: linear-gradient(90deg,transparent,rgba(124,58,237,0.06),transparent);
+      animation: shimmer 2.5s infinite;
+    }
+    @keyframes shimmer { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
+
+    /* ── Desktop nav (substitui Tailwind hidden md:flex) ── */
+    @media (min-width: 768px) {
+      .md-nav {
+        display: flex !important;
+        align-items: center;
+        gap: 1.75rem;
+      }
+      .md-cta {
+        display: flex !important;
+        align-items: center;
+        gap: 0.75rem;
+      }
+    }
+
+    /* ── Mobile menu ── */
+    #mobile-menu { display:none; }
+    #mobile-menu.open { display:block; }
+
+    /* ── Floating orbs ── */
+    .orb { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; }
+
+    /* ── VIP Crown shimmer ── */
+    @keyframes crown-shimmer {
+      0%,100% { filter: drop-shadow(0 0 8px rgba(245,158,11,0.8)); }
+      50%      { filter: drop-shadow(0 0 20px rgba(253,230,138,1)); }
+    }
+    .crown-glow { animation: crown-shimmer 2s ease-in-out infinite; }
+
+    /* ── Scroll fade-in (simple) ── */
+    .fade-in { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease,transform 0.6s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+  </style>
+</head>
+
+<body>
+
+<!-- ════════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50" style="background:rgba(10,10,22,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7C3AED,#2563EB);display:flex;align-items:center;justify-content:center;box-shadow:0 0 16px rgba(124,58,237,0.5);flex-shrink:0;">
+          <span style="color:#fff;font-weight:900;font-size:18px;line-height:1;font-family:'Inter',sans-serif;">S</span>
+        </div>
+        <span style="color:#fff;font-weight:800;font-size:1.125rem;line-height:1;white-space:nowrap;">Super<span style="background:linear-gradient(135deg,#C084FC,#818CF8,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Doramas</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div style="display:none;" class="md-nav">
+        <a href="#biblioteca"  class="nav-link text-gray-400 text-sm font-medium">Biblioteca</a>
+        <a href="#descobrir"   class="nav-link text-gray-400 text-sm font-medium">Descobrir</a>
+        <a href="#gamificacao" class="nav-link text-gray-400 text-sm font-medium">XP &amp; Ranks</a>
+        <a href="#vip"         class="nav-link text-gray-400 text-sm font-medium">VIP</a>
+        <a href="#comunidade"  class="nav-link text-gray-400 text-sm font-medium">Comunidade</a>
+        <a href="#faq"         class="nav-link text-gray-400 text-sm font-medium">FAQ</a>
+        <a href="blog.html"    class="nav-link text-purple-300 text-sm font-medium" style="display:flex;align-items:center;gap:0.375rem;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#C084FC;display:inline-block;"></span>Blog
+        </a>
+      </div>
+
+      <!-- CTA -->
+      <div style="display:none;" class="md-cta">
+        <a href="#download" class="btn btn-primary px-5 py-2.5 text-sm">📱 Baixar Grátis</a>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="md:hidden text-gray-400 hover:text-white" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" style="background:var(--card);border-top:1px solid var(--border);" class="md:hidden px-4 py-4 space-y-2">
+    <a href="#biblioteca"  class="block text-gray-300 py-2 text-sm font-medium">Biblioteca</a>
+    <a href="#descobrir"   class="block text-gray-300 py-2 text-sm font-medium">Descobrir</a>
+    <a href="#gamificacao" class="block text-gray-300 py-2 text-sm font-medium">XP &amp; Ranks</a>
+    <a href="#vip"         class="block text-gray-300 py-2 text-sm font-medium">VIP</a>
+    <a href="#comunidade"  class="block text-gray-300 py-2 text-sm font-medium">Comunidade</a>
+    <a href="#faq"         class="block text-gray-300 py-2 text-sm font-medium">FAQ</a>
+    <a href="blog.html"    class="block text-purple-300 py-2 text-sm font-medium">✦ Blog</a>
+    <a href="#download"    class="btn btn-primary block text-center mt-2 text-sm">📱 Baixar App Grátis</a>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section class="relative min-h-screen flex items-center pt-16 overflow-hidden" style="background:radial-gradient(ellipse 120% 80% at 60% -10%,rgba(124,58,237,0.12) 0%,transparent 60%),var(--bg);">
+
+  <!-- Background orbs -->
+  <div class="orb w-96 h-96 top-24 left-1/4" style="background:rgba(124,58,237,0.08);"></div>
+  <div class="orb w-80 h-80 bottom-16 right-1/4" style="background:rgba(37,99,235,0.08);"></div>
+  <div class="orb w-64 h-64 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="background:rgba(124,58,237,0.04);"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-28 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Hero Text -->
+      <div class="text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold text-purple-300 mb-6" style="background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.25);">
+          <span class="badge-new w-2 h-2 bg-green-400 rounded-full"></span>
+          #1 Organizador de Doramas do Brasil
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 text-glow">
+          Sua Biblioteca<br><span class="gradient-text">Definitiva de Doramas</span>
+        </h1>
+
+        <p class="text-lg text-gray-400 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+          O <strong class="text-gray-200">Super Doramas</strong> é o organizador feito para dorameiros de verdade. Explore milhares de <strong class="text-purple-300">K-Dramas</strong> e <strong class="text-blue-300">C-Dramas</strong>, gerencie sua coleção, ganhe <strong class="text-gray-200">XP</strong> e suba de rank enquanto assiste.
+        </p>
+
+        <!-- Stats -->
+        <div class="flex items-center justify-center lg:justify-start gap-6 mb-8">
+          <div class="text-center">
+            <div class="text-2xl font-black text-white">4.8<span class="star">★</span></div>
+            <div class="text-xs text-gray-500">+12k avaliações</div>
+          </div>
+          <div class="w-px h-10" style="background:var(--border);"></div>
+          <div class="text-center">
+            <div class="text-2xl font-black text-white">500k+</div>
+            <div class="text-xs text-gray-500">Dorameiros</div>
+          </div>
+          <div class="w-px h-10" style="background:var(--border);"></div>
+          <div class="text-center">
+            <div class="text-2xl font-black text-white">15k+</div>
+            <div class="text-xs text-gray-500">Títulos</div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div id="download" class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a href="https://play.google.com/store/apps/details?id=com.superdoramas.biblioteca" class="btn btn-primary text-base px-8 py-4">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M3.18 23.76c.33.18.7.19 1.05.04L15 17.84l-3.07-3.07-8.75 9zm17.14-12.59c.42-.31.68-.8.68-1.38 0-.57-.26-1.05-.67-1.36L18.2 7.2l-3.44 3.44 3.44 3.44 2.12-1.91zM2.06 1.09C2.02 1.26 2 1.43 2 1.62v20.76c0 .19.02.36.06.53l.06.06 11.64-11.64v-.16L2.12 1.03l-.06.06zM15 6.16L4.23.24C3.88.09 3.51.1 3.18.28L14.07 11.17 15 6.16z"/></svg>
+            Google Play
+          </a>
+          <a href="https://patronreaction.com/superdoramas.apk" class="btn btn-outline text-base px-8 py-4">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
+            Download Direto
+          </a>
+        </div>
+        <p class="text-xs text-gray-600 mt-3 text-center lg:text-left">Grátis para baixar · Android 6.0+</p>
+      </div>
+
+      <!-- Hero Mockup -->
+      <div class="flex justify-center lg:justify-end">
+        <div class="relative">
+          <div class="absolute inset-0 rounded-3xl blur-3xl scale-110" style="background:rgba(124,58,237,0.2);"></div>
+          <div class="app-wrap app-glow-purple w-64 sm:w-72 lg:w-80" style="height:580px;">
+            <img src="app_mockup.webp" width="1080" height="2340" alt="Super Doramas App – Tela inicial" fetchpriority="high" decoding="async" />
+          </div>
+
+          <!-- Floating: episódio marcado -->
+          <div class="absolute -bottom-4 -left-6 rounded-2xl px-4 py-3 shadow-2xl" style="background:var(--card);border:1px solid var(--border);">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">✅</span>
+              <div>
+                <div class="text-white font-bold text-xs">Episódio Marcado</div>
+                <div class="text-gray-500 text-xs">My Demon – Ep. 16</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating: XP ganho -->
+          <div class="absolute -top-4 -right-6 rounded-2xl px-4 py-3 shadow-2xl" style="background:linear-gradient(135deg,rgba(124,58,237,0.9),rgba(37,99,235,0.9));border:1px solid rgba(124,58,237,0.4);">
+            <div class="text-white font-black text-xs">+50 XP 🎉</div>
+            <div class="text-white/70 text-xs">Subiu para Ouro!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Genre tags -->
+    <div class="mt-16 flex flex-wrap gap-2 justify-center">
+      <span class="rounded-full px-4 py-2 text-xs font-medium text-gray-400" style="background:var(--card);border:1px solid var(--border);">🇰🇷 K-Drama</span>
+      <span class="rounded-full px-4 py-2 text-xs font-medium text-gray-400" style="background:var(--card);border:1px solid var(--border);">🇨🇳 C-Drama</span>
+      <span class="rounded-full px-4 py-2 text-xs font-medium text-gray-400" style="background:var(--card);border:1px solid var(--border);">Doramas Coreanos</span>
+      <span class="rounded-full px-4 py-2 text-xs font-medium text-gray-400" style="background:var(--card);border:1px solid var(--border);">Doramas Chineses</span>
+      <span class="rounded-full px-4 py-2 text-xs font-medium text-gray-400" style="background:var(--card);border:1px solid var(--border);">J-Drama</span>
+      <span class="rounded-full px-4 py-2 text-xs font-medium text-gray-400" style="background:var(--card);border:1px solid var(--border);">Doramas Legendados</span>
+      <span class="rounded-full px-4 py-2 text-xs font-medium text-gray-400" style="background:var(--card);border:1px solid var(--border);">Doramas Clássicos</span>
+      <span class="rounded-full px-4 py-2 text-xs font-medium text-gray-400" style="background:var(--card);border:1px solid var(--border);">Doramas Online</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     FEATURE 1 – BIBLIOTECA
+════════════════════════════════════════════ -->
+<section id="biblioteca" class="py-24 overflow-hidden" style="background:var(--bg);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Image -->
+      <div class="order-2 lg:order-1 flex justify-center fade-in">
+        <div class="app-wrap app-glow-purple w-full max-w-lg" style="aspect-ratio:600/400;">
+          <img loading="lazy" decoding="async" src="app_library.webp" width="1080" height="2340" alt="Biblioteca de doramas – Favoritos, Ver Depois, Assistindo e Concluídos" />
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="order-1 lg:order-2 fade-in">
+        <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-purple-300 mb-5" style="background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);">
+          📚 Gestão de Biblioteca
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">
+          Sua Coleção Privada de <span class="gradient-text">Doramas</span>, do Seu Jeito
+        </h2>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          Chega de planilhas e anotações perdidas. O Super Doramas é o organizador que todo dorameiro precisava — gerencie seus <strong class="text-gray-300">K-Dramas</strong> e <strong class="text-gray-300">C-Dramas</strong> com listas inteligentes e tracker de episódios.
+        </p>
+
+        <div class="space-y-4">
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(124,58,237,0.15);">❤️</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Favoritos e Coleção Pessoal</h3>
+              <p class="text-gray-500 text-sm">Adicione dramas aos favoritos, organize por listas personalizadas e tenha toda sua coleção num só lugar, sincronizada na nuvem.</p>
+            </div>
+          </div>
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(37,99,235,0.15);">🕐</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Lista "Ver Depois" Inteligente</h3>
+              <p class="text-gray-500 text-sm">Salve dramas para ver mais tarde. Sua fila pessoal, sempre organizada e sincronizada entre dispositivos.</p>
+            </div>
+          </div>
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(124,58,237,0.15);">✅</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Tracker de Episódios</h3>
+              <p class="text-gray-500 text-sm">Marque exatamente onde parou em cada série. O Super Doramas registra seu progresso episódio a episódio, sem você esquecer nada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     FEATURE 2 – DESCOBRIR + FILTROS
+════════════════════════════════════════════ -->
+<section id="descobrir" class="py-24 overflow-hidden" style="background:var(--bg2);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Text -->
+      <div class="fade-in">
+        <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-blue-300 mb-5" style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);">
+          🔍 Filtros Avançados TMDB
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">
+          Catálogo de <span class="gradient-text">15 mil Títulos</span> com Filtros de Especialista
+        </h2>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          Integrado ao TMDB, o Super Doramas oferece um catálogo inteligente para você <strong class="text-gray-300">planejar o que assistir</strong> com filtros que nenhum outro app tem.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4 mb-6">
+          <div class="card p-4">
+            <div class="text-blue-400 text-2xl mb-2">🏷️</div>
+            <h3 class="text-white font-semibold text-sm mb-1">Keywords Detalhadas</h3>
+            <p class="text-gray-500 text-xs">Romance, Médico, Histórico, Vilão Carismático — filtre por temas que você ama.</p>
+          </div>
+          <div class="card p-4">
+            <div class="text-purple-400 text-2xl mb-2">🌏</div>
+            <h3 class="text-white font-semibold text-sm mb-1">Idioma Original</h3>
+            <p class="text-gray-500 text-xs">K-Drama, C-Drama, J-Drama ou T-Drama com um toque.</p>
+          </div>
+          <div class="card p-4">
+            <div class="text-green-400 text-2xl mb-2">📡</div>
+            <h3 class="text-white font-semibold text-sm mb-1">Status da Série</h3>
+            <p class="text-gray-500 text-xs">Em exibição, Finalizado ou Cancelado — maratone ou acompanhe semana a semana.</p>
+          </div>
+          <div class="card p-4">
+            <div class="text-yellow-400 text-2xl mb-2">💡</div>
+            <h3 class="text-white font-semibold text-sm mb-1">Pedidos de Drama</h3>
+            <p class="text-gray-500 text-xs">Não achou o que queria? Faça um pedido e vote nos dramas que a comunidade quer ver.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image + sidebar visual -->
+      <div class="flex justify-center lg:justify-end fade-in">
+        <div class="relative w-full max-w-lg">
+          <div class="app-wrap app-glow-blue w-full" style="aspect-ratio:600/400;">
+            <img loading="lazy" decoding="async" src="aba descobrir.webp" width="1080" height="2340" alt="Aba Descobrir – Catálogo de K-Dramas e C-Dramas" />
+          </div>
+          <!-- Sidebar flutuante -->
+          <div class="absolute -right-4 top-6 bottom-6 w-44 rounded-2xl shadow-2xl p-4 hidden lg:flex flex-col gap-3 overflow-hidden" style="background:var(--card);border:1px solid var(--border);">
+            <div class="text-white text-xs font-bold mb-1">🎛️ Filtros</div>
+            <div class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Idioma</div>
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-2 text-xs text-purple-300"><div class="w-3 h-3 rounded bg-purple-500 shrink-0"></div>K-Drama</div>
+              <div class="flex items-center gap-2 text-xs text-blue-300"><div class="w-3 h-3 rounded bg-blue-500 shrink-0"></div>C-Drama</div>
+              <div class="flex items-center gap-2 text-xs text-gray-500"><div class="w-3 h-3 rounded shrink-0" style="border:1px solid #444;"></div>J-Drama</div>
+            </div>
+            <div class="text-gray-500 text-xs font-semibold uppercase tracking-wide mt-1">Status</div>
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-2 text-xs text-green-300"><div class="w-3 h-3 rounded bg-green-500 shrink-0"></div>Em exibição</div>
+              <div class="flex items-center gap-2 text-xs text-gray-500"><div class="w-3 h-3 rounded shrink-0" style="border:1px solid #444;"></div>Finalizado</div>
+            </div>
+            <div class="text-gray-500 text-xs font-semibold uppercase tracking-wide mt-1">Nota</div>
+            <div class="rounded-lg p-2" style="background:var(--bg);">
+              <div class="flex justify-between text-xs text-gray-500 mb-1"><span>7.0</span><span>10</span></div>
+              <div class="xp-bar-track"><div class="xp-bar-fill" style="width:70%;"></div></div>
+            </div>
+            <div class="text-gray-500 text-xs font-semibold uppercase tracking-wide mt-1">Keywords</div>
+            <div class="flex flex-wrap gap-1">
+              <span class="rounded-full px-2 py-0.5 text-xs text-purple-300" style="background:rgba(124,58,237,0.2);">Romance</span>
+              <span class="rounded-full px-2 py-0.5 text-xs text-blue-300" style="background:rgba(37,99,235,0.2);">Histórico</span>
+              <span class="rounded-full px-2 py-0.5 text-xs text-gray-500" style="background:var(--border);">+12</span>
+            </div>
+            <button class="mt-auto w-full bg-cta text-white text-xs font-bold py-2 rounded-xl">Aplicar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     FEATURE 3 – GAMIFICAÇÃO / XP / RANKS
+════════════════════════════════════════════ -->
+<section id="gamificacao" class="py-24 overflow-hidden" style="background:var(--bg);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="text-center mb-14 fade-in">
+      <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-purple-300 mb-5" style="background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);">
+        🎮 Gamificação
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight">
+        Cada Drama Assistido te <span class="gradient-text">Faz Evoluir</span>
+      </h2>
+      <p class="text-gray-400 max-w-xl mx-auto">
+        O Super Doramas tem um sistema completo de progressão. Ganhe XP em cada ação, suba de rank e desbloqueie conquistas únicas enquanto constrói sua biblioteca.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- XP Visual Card -->
+      <div class="flex justify-center fade-in">
+        <div class="w-full max-w-md">
+          <!-- Profile card mockup -->
+          <div class="rounded-3xl p-6 space-y-5" style="background:var(--card);border:1px solid rgba(124,58,237,0.25);box-shadow:0 0 60px rgba(124,58,237,0.15);">
+
+            <!-- User header -->
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-full bg-cta flex items-center justify-center text-white text-xl font-black">A</div>
+              <div class="flex-1">
+                <div class="text-white font-bold">AJ_Dorameiro</div>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="rank-gold text-black text-xs font-black px-3 py-0.5 rounded-full">⚡ Ouro</span>
+                  <span class="text-gray-500 text-xs">1.240 XP total</span>
+                </div>
+              </div>
+              <span class="crown-glow text-2xl">👑</span>
+            </div>
+
+            <!-- XP Bar -->
+            <div>
+              <div class="flex justify-between text-xs text-gray-400 mb-2">
+                <span>184 XP neste nível</span>
+                <span>próximo: Platina a 316 XP</span>
+              </div>
+              <div class="xp-bar-track">
+                <div class="xp-bar-fill" style="width:37%;"></div>
+              </div>
+            </div>
+
+            <!-- Stats row -->
+            <div class="grid grid-cols-3 gap-3 text-center">
+              <div class="rounded-xl p-3" style="background:var(--bg);border:1px solid var(--border);">
+                <div class="text-white font-black text-lg">48</div>
+                <div class="text-gray-500 text-xs">Dramas</div>
+              </div>
+              <div class="rounded-xl p-3" style="background:var(--bg);border:1px solid var(--border);">
+                <div class="text-white font-black text-lg">312</div>
+                <div class="text-gray-500 text-xs">Episódios</div>
+              </div>
+              <div class="rounded-xl p-3" style="background:var(--bg);border:1px solid var(--border);">
+                <div class="text-white font-black text-lg">12</div>
+                <div class="text-gray-500 text-xs">Reviews</div>
+              </div>
+            </div>
+
+            <!-- XP actions -->
+            <div class="space-y-2">
+              <div class="flex items-center justify-between rounded-xl px-4 py-3" style="background:var(--bg);border:1px solid var(--border);">
+                <div class="flex items-center gap-3">
+                  <span class="text-base">✅</span>
+                  <span class="text-gray-300 text-sm">Marcar episódio</span>
+                </div>
+                <span class="text-purple-300 text-xs font-bold">+10 XP</span>
+              </div>
+              <div class="flex items-center justify-between rounded-xl px-4 py-3" style="background:var(--bg);border:1px solid var(--border);">
+                <div class="flex items-center gap-3">
+                  <span class="text-base">⭐</span>
+                  <span class="text-gray-300 text-sm">Escrever review</span>
+                </div>
+                <span class="text-purple-300 text-xs font-bold">+100 XP</span>
+              </div>
+              <div class="flex items-center justify-between rounded-xl px-4 py-3" style="background:var(--bg);border:1px solid var(--border);">
+                <div class="flex items-center gap-3">
+                  <span class="text-base">🔥</span>
+                  <span class="text-gray-300 text-sm">Login diário</span>
+                </div>
+                <span class="text-purple-300 text-xs font-bold">+25 XP</span>
+              </div>
+              <div class="flex items-center justify-between rounded-xl px-4 py-3" style="background:var(--bg);border:1px solid var(--border);">
+                <div class="flex items-center gap-3">
+                  <span class="text-base">📤</span>
+                  <span class="text-gray-300 text-sm">Compartilhar app</span>
+                </div>
+                <span class="text-yellow-400 text-xs font-bold">+24h VIP 👑</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text + Ranks -->
+      <div class="fade-in">
+        <div class="space-y-6">
+
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(124,58,237,0.15);">⚡</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Sistema de XP</h3>
+              <p class="text-gray-500 text-sm">Cada ação no app gera XP — marcar episódio, escrever review, fazer login diário, adicionar favoritos e muito mais. Quanto mais você usa, mais evolui.</p>
+            </div>
+          </div>
+
+          <div class="card p-5">
+            <h3 class="text-white font-semibold mb-4">🏅 Ranks de Progressão</h3>
+            <div class="grid grid-cols-5 gap-2 text-center">
+              <div>
+                <div class="rank-bronze text-white text-xs font-black py-1.5 px-2 rounded-xl mb-1">Bronze</div>
+                <div class="text-gray-600 text-xs">0–499 XP</div>
+              </div>
+              <div>
+                <div class="rank-silver text-white text-xs font-black py-1.5 px-2 rounded-xl mb-1">Prata</div>
+                <div class="text-gray-600 text-xs">500–999</div>
+              </div>
+              <div>
+                <div class="rank-gold text-black text-xs font-black py-1.5 px-2 rounded-xl mb-1">Ouro</div>
+                <div class="text-gray-600 text-xs">1k–1.999</div>
+              </div>
+              <div>
+                <div class="rank-plat text-black text-xs font-black py-1.5 px-2 rounded-xl mb-1">Platina</div>
+                <div class="text-gray-600 text-xs">2k–4.999</div>
+              </div>
+              <div>
+                <div class="rank-diamond text-black text-xs font-black py-1.5 px-2 rounded-xl mb-1">💎 Dia.</div>
+                <div class="text-gray-600 text-xs">5k+</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(245,158,11,0.15);">🏆</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Hall da Fama</h3>
+              <p class="text-gray-500 text-sm">Os maiores dorameiros do Brasil no ranking semanal. Apareça no top e ganhe reconhecimento — e XP bônus — pela sua dedicação.</p>
+            </div>
+          </div>
+
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(16,185,129,0.15);">🎯</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Conquistas</h3>
+              <p class="text-gray-500 text-sm">Desbloqueie badges especiais por marcos como "Maratonista", "Crítico Feroz" e "Veterano" — exibidos no seu perfil para a comunidade ver.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     FEATURE 4 – VIP
+════════════════════════════════════════════ -->
+<section id="vip" class="py-24 overflow-hidden relative" style="background:var(--bg2);">
+  <div class="orb w-96 h-96 top-0 right-0" style="background:rgba(245,158,11,0.06);"></div>
+  <div class="orb w-72 h-72 bottom-0 left-0" style="background:rgba(245,158,11,0.04);"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-14 fade-in">
+      <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-yellow-300 mb-5" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);">
+        👑 Plano VIP
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight">
+        Eleve sua Experiência com o <span class="gradient-text-gold">Super Doramas VIP</span>
+      </h2>
+      <p class="text-gray-400 max-w-xl mx-auto">
+        Sem anúncios, XP dobrado, sincronização em nuvem prioritária e acesso a funções exclusivas. Apoie o app e tenha a melhor experiência possível.
+      </p>
+    </div>
+
+    <!-- VIP Cards grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 fade-in">
+
+      <div class="card card-vip p-6 flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0" style="background:rgba(245,158,11,0.15);">🚫</div>
+        <div>
+          <h3 class="text-white font-semibold mb-1">Sem Anúncios</h3>
+          <p class="text-gray-400 text-sm">Experiência 100% limpa, sem banners, intersticiais ou interrupções. Mergulhe nos dramas sem distração.</p>
+        </div>
+      </div>
+
+      <div class="card card-vip p-6 flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0" style="background:rgba(245,158,11,0.15);">⚡</div>
+        <div>
+          <h3 class="text-white font-semibold mb-1">XP 2× Dobrado</h3>
+          <p class="text-gray-400 text-sm">Todos os ganhos de XP são multiplicados por 2. Suba de rank muito mais rápido e domine o ranking.</p>
+        </div>
+      </div>
+
+      <div class="card card-vip p-6 flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0" style="background:rgba(245,158,11,0.15);">☁️</div>
+        <div>
+          <h3 class="text-white font-semibold mb-1">Sincronização em Nuvem</h3>
+          <p class="text-gray-400 text-sm">Sua biblioteca, favoritos e progresso sincronizados em todos os dispositivos automaticamente.</p>
+        </div>
+      </div>
+
+      <div class="card card-vip p-6 flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0" style="background:rgba(245,158,11,0.15);">👑</div>
+        <div>
+          <h3 class="text-white font-semibold mb-1">Badge VIP Exclusivo</h3>
+          <p class="text-gray-400 text-sm">Badge dourado animado no seu avatar, visível no chat, no perfil e no ranking da comunidade.</p>
+        </div>
+      </div>
+
+      <div class="card card-vip p-6 flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0" style="background:rgba(245,158,11,0.15);">📤</div>
+        <div>
+          <h3 class="text-white font-semibold mb-1">VIP Grátis por Compartilhar</h3>
+          <p class="text-gray-400 text-sm">Compartilhe o Super Doramas com amigos e ganhe 24 horas de VIP sem nenhum custo — válido 1× por semana.</p>
+        </div>
+      </div>
+
+      <div class="card card-vip p-6 flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0" style="background:rgba(245,158,11,0.15);">❤️</div>
+        <div>
+          <h3 class="text-white font-semibold mb-1">Apoie o Projeto</h3>
+          <p class="text-gray-400 text-sm">O Super Doramas é mantido por amor à comunidade. Sua assinatura ajuda a manter o app vivo, gratuito e em constante evolução.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA VIP -->
+    <div class="text-center fade-in">
+      <a href="https://play.google.com/store/apps/details?id=com.superdoramas.biblioteca" class="btn btn-gold text-base px-10 py-4 mx-auto" style="font-size:1rem;">
+        👑 Conhecer o VIP no App
+      </a>
+      <p class="text-gray-600 text-xs mt-3">Disponível no aplicativo · Cancele quando quiser</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     FEATURE 5 – REVIEWS
+════════════════════════════════════════════ -->
+<section class="py-24 overflow-hidden" style="background:var(--bg);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Text -->
+      <div class="fade-in">
+        <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-yellow-300 mb-5" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);">
+          ⭐ Sistema de Reviews
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">
+          Avalie, Critique e <span class="gradient-text">Descubra pelo Olhar da Comunidade</span>
+        </h2>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          Escreva reviews detalhadas com <strong class="text-gray-300">notas por categoria</strong> — história, atuação, trilha, fotografia e mais. Veja o que outros dorameiros pensam antes de começar um drama.
+        </p>
+
+        <div class="space-y-4">
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(245,158,11,0.15);">📝</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Reviews com Sub-Notas</h3>
+              <p class="text-gray-500 text-sm">Avalie roteiro, atuação, romance, trilha sonora e desenvolvimento separadamente. Uma crítica completa com um só formulário.</p>
+            </div>
+          </div>
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(245,158,11,0.15);">🙈</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Flag de Spoiler</h3>
+              <p class="text-gray-500 text-sm">Marque sua review como spoiler para proteger quem ainda não assistiu. Spoilers ficam ocultos com aviso e precisam de toque para revelar.</p>
+            </div>
+          </div>
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(124,58,237,0.15);">⚡</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">+100 XP por Review</h3>
+              <p class="text-gray-500 text-sm">Cada review completa vale 100 XP — a forma mais rápida de subir de rank e ajudar a comunidade ao mesmo tempo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review card mockup visual -->
+      <div class="flex justify-center lg:justify-end fade-in">
+        <div class="w-full max-w-sm space-y-4">
+
+          <!-- Review card 1 -->
+          <div class="rounded-2xl p-5 space-y-3" style="background:var(--card);border:1px solid var(--border);box-shadow:0 0 40px rgba(124,58,237,0.1);">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-white font-black text-sm">M</div>
+              <div>
+                <div class="text-white text-sm font-semibold">Mariana_K</div>
+                <div class="flex items-center gap-1">
+                  <span class="star text-xs">★★★★★</span>
+                  <span class="text-gray-500 text-xs ml-1">9.5/10</span>
+                </div>
+              </div>
+              <span class="ml-auto rank-gold text-black text-xs font-black px-2.5 py-0.5 rounded-full">Ouro</span>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">"My Demon foi a obra-prima que eu não sabia que precisava. A química entre os protagonistas é absurda e o roteiro não tem um episódio fraco."</p>
+            <div class="flex gap-2 flex-wrap">
+              <div class="text-xs rounded-lg px-3 py-1.5 flex items-center gap-1" style="background:var(--bg);border:1px solid var(--border);">
+                <span>📖</span><span class="text-gray-400">História</span><span class="text-purple-300 font-bold ml-1">9.8</span>
+              </div>
+              <div class="text-xs rounded-lg px-3 py-1.5 flex items-center gap-1" style="background:var(--bg);border:1px solid var(--border);">
+                <span>🎭</span><span class="text-gray-400">Atuação</span><span class="text-purple-300 font-bold ml-1">10</span>
+              </div>
+              <div class="text-xs rounded-lg px-3 py-1.5 flex items-center gap-1" style="background:var(--bg);border:1px solid var(--border);">
+                <span>🎵</span><span class="text-gray-400">Trilha</span><span class="text-purple-300 font-bold ml-1">9.5</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review card 2 -->
+          <div class="rounded-2xl p-5 space-y-3" style="background:var(--card);border:1px solid var(--border);">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-black text-sm">R</div>
+              <div>
+                <div class="text-white text-sm font-semibold flex items-center gap-2">
+                  Rafael_C
+                  <span class="crown-glow text-sm">👑</span>
+                </div>
+                <div class="flex items-center gap-1">
+                  <span class="star text-xs">★★★★</span><span class="text-gray-500 text-xs">½</span>
+                  <span class="text-gray-500 text-xs ml-1">8.5/10</span>
+                </div>
+              </div>
+              <span class="ml-auto text-xs rounded-lg px-2.5 py-0.5 font-medium" style="background:rgba(239,68,68,0.15);color:#F87171;border:1px solid rgba(239,68,68,0.2);">⚠️ Spoiler</span>
+            </div>
+            <p class="text-gray-400 text-sm">"Um clássico que envelheceu muito bem. Imperdível para quem curte histórico."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     FEATURE 6 – ATORES
+════════════════════════════════════════════ -->
+<section class="py-24 overflow-hidden" style="background:var(--bg2);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Image -->
+      <div class="flex justify-center fade-in">
+        <div class="app-wrap app-glow-purple w-full max-w-lg" style="aspect-ratio:600/400;">
+          <img loading="lazy" decoding="async" src="actors_ranking.webp" width="1080" height="2340" alt="Ranking de atores de K-Dramas e C-Dramas" />
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="fade-in">
+        <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-purple-300 mb-5" style="background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);">
+          🎭 Exploração por Atores
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">
+          Descubra Novos Dramas pelos <span class="gradient-text">Atores que Você Ama</span>
+        </h2>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          Pelo ranking e perfis de atores, você usa o elenco como <strong class="text-gray-300">bússola de descoberta</strong> — veja toda a filmografia de um artista e planeje sua próxima maratona.
+        </p>
+
+        <div class="space-y-4">
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(124,58,237,0.15);">🏆</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Ranking de Atores em Alta</h3>
+              <p class="text-gray-500 text-sm">Veja quais artistas estão bombando esta semana e descubra os dramas que os tornaram famosos.</p>
+            </div>
+          </div>
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(37,99,235,0.15);">👤</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Perfil Completo do Artista</h3>
+              <p class="text-gray-500 text-sm">Filmografia completa com posters e notas. Adicione títulos diretamente à sua lista "Ver Depois" sem sair da tela.</p>
+            </div>
+          </div>
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(124,58,237,0.15);">🔔</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Alerta de Novo Projeto</h3>
+              <p class="text-gray-500 text-sm">Siga um ator e receba notificação assim que ele confirmar um novo drama — antes de todo mundo ficar sabendo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     FEATURE 7 – COMUNIDADE & CHAT
+════════════════════════════════════════════ -->
+<section id="comunidade" class="py-24 overflow-hidden" style="background:var(--bg);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Text -->
+      <div class="fade-in">
+        <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-purple-300 mb-5" style="background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);">
+          💬 Comunidade & Chat
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">
+          Compartilhe a Paixão por <span class="gradient-text">Doramas em Tempo Real</span>
+        </h2>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          O Super Doramas tem um <strong class="text-gray-300">chat ao vivo</strong> integrado onde dorameiros de todo o Brasil conversam sobre K-Dramas, C-Dramas e muito mais.
+        </p>
+
+        <div class="space-y-4">
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(124,58,237,0.15);">🌐</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Chat em Tempo Real</h3>
+              <p class="text-gray-500 text-sm">Veja quantas pessoas estão online e participe de conversas ao vivo. Contador de presença mostra o pulso da comunidade.</p>
+            </div>
+          </div>
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(37,99,235,0.15);">🪪</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Identidade na Comunidade</h3>
+              <p class="text-gray-500 text-sm">Seu nome, rank e badge VIP aparecem ao lado das mensagens. Quanto maior seu rank, mais destaque você tem.</p>
+            </div>
+          </div>
+          <div class="card p-5 flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background:rgba(124,58,237,0.15);">📲</div>
+            <div>
+              <h3 class="text-white font-semibold mb-1">Telegram da Comunidade</h3>
+              <p class="text-gray-500 text-sm">Além do chat no app, entre no nosso Telegram e fique por dentro de novidades, lançamentos e da vida da comunidade Super Doramas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="flex justify-center lg:justify-end fade-in">
+        <div class="app-wrap app-glow-purple w-full max-w-sm" style="max-height:520px;">
+          <img loading="lazy" decoding="async" src="chat.webp" width="1080" height="2340" alt="Chat da comunidade Super Doramas em tempo real" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     FEATURE 8 – CONTA & SINCRONIZAÇÃO
+════════════════════════════════════════════ -->
+<section class="py-24 overflow-hidden" style="background:var(--bg2);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-14 fade-in">
+      <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-blue-300 mb-5" style="background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);">
+        🔑 Conta & Sincronização
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+        Sua Biblioteca em <span class="gradient-text">Todo Lugar</span>
+      </h2>
+      <p class="text-gray-400 max-w-lg mx-auto">
+        Crie uma conta gratuita e tenha toda a sua coleção sempre sincronizada — dramas, progresso, XP e rank em todos os seus dispositivos.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 fade-in">
+      <div class="card p-6 text-center">
+        <div class="text-4xl mb-4">📱</div>
+        <h3 class="text-white font-semibold mb-2">Conta Gratuita</h3>
+        <p class="text-gray-500 text-sm">Crie com e-mail e senha em segundos. Seu perfil, avatar e histórico salvos na nuvem automaticamente.</p>
+      </div>
+      <div class="card p-6 text-center">
+        <div class="text-4xl mb-4">🔄</div>
+        <h3 class="text-white font-semibold mb-2">Sync Automático</h3>
+        <p class="text-gray-500 text-sm">Biblioteca, episódios marcados e progresso sincronizados em tempo real. Troque de celular sem perder nada.</p>
+      </div>
+      <div class="card p-6 text-center">
+        <div class="text-4xl mb-4">🔒</div>
+        <h3 class="text-white font-semibold mb-2">Recuperação de Senha</h3>
+        <p class="text-gray-500 text-sm">Esqueceu a senha? Receba um link de recuperação no seu e-mail com um toque — simples e seguro.</p>
+      </div>
+      <div class="card p-6 text-center">
+        <div class="text-4xl mb-4">🌟</div>
+        <h3 class="text-white font-semibold mb-2">Perfil Personalizado</h3>
+        <p class="text-gray-500 text-sm">Escolha foto de perfil, exiba seus ranks e conquistas, e apareça com destaque na comunidade e no ranking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     FEATURE 9 – IMPORTAÇÃO + TV CAST
+════════════════════════════════════════════ -->
+<section class="py-24 overflow-hidden" style="background:var(--bg);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Images: antes + depois -->
+      <div class="order-2 lg:order-1 flex justify-center gap-4 fade-in">
+        <div class="app-wrap app-glow-purple" style="width:47%;max-width:220px;max-height:420px;">
+          <img loading="lazy" decoding="async" src="antes de imporatr.webp" width="1080" height="2340" alt="Antes de importar drama" style="object-position:top;" />
+        </div>
+        <div class="app-wrap app-glow-purple" style="width:47%;max-width:220px;max-height:420px;">
+          <img loading="lazy" decoding="async" src="sucesso em importar.webp" width="1080" height="2340" alt="Sucesso ao importar drama" style="object-position:center;" />
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="order-1 lg:order-2 fade-in">
+        <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold text-green-300 mb-5" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);">
+          ⚡ Importação & TV
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-5 leading-tight">
+          Importe em Segundos e <span class="gradient-text">Assista na TV</span>
+        </h2>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          Um toque para importar um drama completo — elenco, poster, temporadas e episódios preenchidos automaticamente. E espelhe arquivos locais direto na sua Smart TV.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="card p-4">
+            <div class="text-2xl mb-2">⬇️</div>
+            <h3 class="text-white font-semibold text-sm mb-1">Importação Rápida</h3>
+            <p class="text-gray-500 text-xs">Encontre na Biblioteca Pública e importe com um toque. Tudo organizado automaticamente.</p>
+          </div>
+          <div class="card p-4">
+            <div class="text-2xl mb-2">📡</div>
+            <h3 class="text-white font-semibold text-sm mb-1">Chromecast</h3>
+            <p class="text-gray-500 text-xs">Espelhe arquivos locais na TV via Chromecast com um toque.</p>
+          </div>
+          <div class="card p-4">
+            <div class="text-2xl mb-2">📶</div>
+            <h3 class="text-white font-semibold text-sm mb-1">DLNA</h3>
+            <p class="text-gray-500 text-xs">Compatível com Smart TVs via DLNA. Cinema de doramas na sala de casa.</p>
+          </div>
+          <div class="card p-4">
+            <div class="text-2xl mb-2">📱</div>
+            <h3 class="text-white font-semibold text-sm mb-1">Miracast</h3>
+            <p class="text-gray-500 text-xs">Espelhe a tela em qualquer TV compatível sem cabos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     SOCIAL PROOF
+════════════════════════════════════════════ -->
+<section class="py-24" style="background:var(--bg2);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+        O Que os <span class="gradient-text">Dorameiros</span> Estão Dizendo
+      </h2>
+      <p class="text-gray-500 max-w-xl mx-auto">Mais de 500 mil dorameiros já organizam sua vida com o Super Doramas.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 fade-in">
+
+      <div class="card p-6">
+        <div class="star text-base mb-4">★★★★★</div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-5">"Finalmente um app que organiza meus <strong class="text-gray-300">Doramas Coreanos</strong> de verdade! Os filtros avançados são incríveis e o sistema de XP me viciou — já sou rank Ouro!"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-black text-white" style="background:linear-gradient(135deg,#7C3AED,#2563EB);">A</div>
+          <div>
+            <div class="text-white text-sm font-semibold">Ana R.</div>
+            <div class="text-gray-600 text-xs">São Paulo, SP · <span class="rank-gold text-black text-xs font-black px-1.5 rounded-full">Ouro</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card p-6" style="border-color:rgba(124,58,237,0.3);">
+        <div class="star text-base mb-4">★★★★★</div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-5">"Adoro separar meus <strong class="text-gray-300">C-Dramas</strong> dos K-Dramas e marcar episódios. O VIP vale muito — sem anúncios e com XP dobrado, já cheguei ao Diamante!"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-black text-white" style="background:linear-gradient(135deg,#2563EB,#0284C7);">C</div>
+          <div>
+            <div class="text-white text-sm font-semibold flex items-center gap-1">Carla M. <span class="crown-glow">👑</span></div>
+            <div class="text-gray-600 text-xs">Rio de Janeiro, RJ · <span class="rank-diamond text-black text-xs font-black px-1.5 rounded-full">💎 Diamante</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card p-6">
+        <div class="star text-base mb-4">★★★★★</div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-5">"O ranking de atores é genial para descoberta. Pelo perfil do meu favorito encontrei 8 <strong class="text-gray-300">Doramas Coreanos</strong> que nem sabia que existiam!"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-black text-white" style="background:linear-gradient(135deg,#7C3AED,#9333EA);">F</div>
+          <div>
+            <div class="text-white text-sm font-semibold">Fernanda L.</div>
+            <div class="text-gray-600 text-xs">Belo Horizonte, MG · <span class="rank-plat text-black text-xs font-black px-1.5 rounded-full">Platina</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     CTA FINAL
+════════════════════════════════════════════ -->
+<section class="py-28 relative overflow-hidden" style="background:radial-gradient(ellipse 100% 80% at 50% 50%,rgba(124,58,237,0.1) 0%,transparent 70%),var(--bg);">
+  <div class="orb w-96 h-96 top-0 left-1/3" style="background:rgba(124,58,237,0.08);"></div>
+  <div class="orb w-80 h-80 bottom-0 right-1/3" style="background:rgba(37,99,235,0.08);"></div>
+
+  <div class="relative max-w-4xl mx-auto px-4 text-center fade-in">
+    <div class="text-6xl mb-6">🎬</div>
+    <h2 class="text-4xl sm:text-5xl font-black text-white mb-5 text-glow">
+      Organize sua Paixão por <span class="gradient-text">Doramas</span><br>em Um Só Lugar
+    </h2>
+    <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
+      Junte-se a mais de 500 mil dorameiros. Baixe grátis e transforme sua coleção em uma biblioteca elegante, com XP, ranks e comunidade ativa.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://play.google.com/store/apps/details?id=com.superdoramas.biblioteca" class="btn btn-primary text-base px-10 py-4">
+        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M3.18 23.76c.33.18.7.19 1.05.04L15 17.84l-3.07-3.07-8.75 9zm17.14-12.59c.42-.31.68-.8.68-1.38 0-.57-.26-1.05-.67-1.36L18.2 7.2l-3.44 3.44 3.44 3.44 2.12-1.91zM2.06 1.09C2.02 1.26 2 1.43 2 1.62v20.76c0 .19.02.36.06.53l.06.06 11.64-11.64v-.16L2.12 1.03l-.06.06zM15 6.16L4.23.24C3.88.09 3.51.1 3.18.28L14.07 11.17 15 6.16z"/></svg>
+        Baixar no Google Play
+      </a>
+      <a href="https://patronreaction.com/superdoramas.apk" class="btn btn-outline text-base px-10 py-4">
+        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18L5.33 9h3.84v4h5.66V9h3.84L12 2z"/></svg>
+        Download Direto (.apk)
+      </a>
+    </div>
+    <p class="text-gray-600 text-xs mt-4">Grátis para baixar · Android 6.0+</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     FAQ
+════════════════════════════════════════════ -->
+<section id="faq" class="py-24" style="background:var(--bg2);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">
+        Perguntas Frequentes sobre o <span class="gradient-text">Super Doramas</span>
+      </h2>
+      <p class="text-gray-500">Tudo o que você precisa saber.</p>
+    </div>
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type":"Question","name":"O Super Doramas transmite ou hospeda vídeos?","acceptedAnswer":{"@type":"Answer","text":"Não. O Super Doramas é um organizador e tracker de biblioteca pessoal — ele não hospeda nem transmite conteúdo. O app te ajuda a catalogar, rastrear e descobrir onde assistir Doramas Online."}},
+        { "@type":"Question","name":"O Super Doramas é gratuito?","acceptedAnswer":{"@type":"Answer","text":"Sim! O Super Doramas é 100% gratuito para baixar e usar. Há um plano VIP opcional com XP dobrado, sem anúncios e sincronização avançada."}},
+        { "@type":"Question","name":"Como funciona o sistema de XP e Ranks?","acceptedAnswer":{"@type":"Answer","text":"Você ganha XP ao marcar episódios, escrever reviews, fazer login diário e compartilhar o app. Com XP você sobe de rank: Bronze, Prata, Ouro, Platina e Diamante."}},
+        { "@type":"Question","name":"Como ganho VIP gratuitamente?","acceptedAnswer":{"@type":"Answer","text":"Compartilhe o Super Doramas com amigos pelo botão de compartilhamento no app e ganhe 24 horas de VIP sem custo algum. Válido uma vez por semana."}},
+        { "@type":"Question","name":"Quais tipos de doramas posso organizar?","acceptedAnswer":{"@type":"Answer","text":"K-Dramas, C-Dramas, J-Dramas, T-Dramas e muito mais, com catálogo integrado ao TMDB com mais de 15 mil títulos."}},
+        { "@type":"Question","name":"O app suporta Chromecast e DLNA?","acceptedAnswer":{"@type":"Answer","text":"Sim! O Super Doramas suporta Chromecast, DLNA e Miracast para reprodução de arquivos locais direto na Smart TV."}}
+      ]
+    }
+    </script>
+
+    <div class="space-y-3 fade-in">
+
+      <details class="group card overflow-hidden" style="border-radius:1rem;">
+        <summary class="flex items-center justify-between cursor-pointer p-6 text-white font-semibold list-none">
+          <span>O Super Doramas transmite vídeos ou é um streaming?</span>
+          <span class="text-purple-400 group-open:rotate-45 transition-transform duration-200 text-2xl font-light shrink-0">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+          Não. O Super Doramas é um <strong class="text-gray-300">organizador e tracker de biblioteca pessoal</strong> — ele não hospeda nem transmite conteúdo. O app te ajuda a catalogar, rastrear episódios, criar listas e descobrir <strong class="text-gray-300">onde assistir Doramas Online</strong>.
+        </div>
+      </details>
+
+      <details class="group card overflow-hidden" style="border-radius:1rem;">
+        <summary class="flex items-center justify-between cursor-pointer p-6 text-white font-semibold list-none">
+          <span>O Super Doramas é gratuito?</span>
+          <span class="text-purple-400 group-open:rotate-45 transition-transform duration-200 text-2xl font-light shrink-0">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+          Sim! O Super Doramas é 100% gratuito para baixar e usar. Há um plano VIP opcional com XP dobrado, sem anúncios e sincronização avançada. Você também pode ganhar 24h de VIP grátis compartilhando o app.
+        </div>
+      </details>
+
+      <details class="group card overflow-hidden" style="border-radius:1rem;">
+        <summary class="flex items-center justify-between cursor-pointer p-6 text-white font-semibold list-none">
+          <span>Como funciona o sistema de XP e Ranks?</span>
+          <span class="text-purple-400 group-open:rotate-45 transition-transform duration-200 text-2xl font-light shrink-0">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+          Você ganha XP ao marcar episódios (+10), escrever reviews (+100), fazer login diário (+25) e compartilhar o app (24h VIP). Com XP você sobe de rank: <strong class="text-gray-300">Bronze → Prata → Ouro → Platina → Diamante</strong>. Cada rank tem um badge visual exclusivo no seu avatar.
+        </div>
+      </details>
+
+      <details class="group card overflow-hidden" style="border-radius:1rem;">
+        <summary class="flex items-center justify-between cursor-pointer p-6 text-white font-semibold list-none">
+          <span>Como ganho VIP gratuitamente?</span>
+          <span class="text-purple-400 group-open:rotate-45 transition-transform duration-200 text-2xl font-light shrink-0">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+          Toque no botão <strong class="text-gray-300">Compartilhar</strong> na tela de perfil ou na página de apoio, compartilhe o app com amigos e ganhe <strong class="text-gray-300">24 horas de VIP grátis</strong> — sem custo algum. Disponível uma vez por semana. O VIP temporário não interfere com assinaturas pagas.
+        </div>
+      </details>
+
+      <details class="group card overflow-hidden" style="border-radius:1rem;">
+        <summary class="flex items-center justify-between cursor-pointer p-6 text-white font-semibold list-none">
+          <span>Quais tipos de doramas posso organizar?</span>
+          <span class="text-purple-400 group-open:rotate-45 transition-transform duration-200 text-2xl font-light shrink-0">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+          O Super Doramas organiza mais de 15 mil títulos de <strong class="text-gray-300">K-Dramas</strong>, <strong class="text-gray-300">C-Dramas</strong>, J-Dramas e T-Dramas com catálogo atualizado via TMDB. Filtre por idioma, gênero, status e muito mais.
+        </div>
+      </details>
+
+      <details class="group card overflow-hidden" style="border-radius:1rem;">
+        <summary class="flex items-center justify-between cursor-pointer p-6 text-white font-semibold list-none">
+          <span>O app suporta Chromecast e DLNA?</span>
+          <span class="text-purple-400 group-open:rotate-45 transition-transform duration-200 text-2xl font-light shrink-0">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+          Sim! O Super Doramas tem suporte nativo a <strong class="text-gray-300">Chromecast, DLNA e Miracast</strong> para reprodução de arquivos locais direto na Smart TV.
+        </div>
+      </details>
+
+      <details class="group card overflow-hidden" style="border-radius:1rem;">
+        <summary class="flex items-center justify-between cursor-pointer p-6 text-white font-semibold list-none">
+          <span>Como funciona o ranking de atores?</span>
+          <span class="text-purple-400 group-open:rotate-45 transition-transform duration-200 text-2xl font-light shrink-0">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+          O ranking é atualizado semanalmente e funciona como ferramenta de descoberta: veja quem está em alta, acesse o perfil completo, explore a filmografia e adicione títulos à lista "Ver Depois" — sem sair da tela.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     SEO TEXT BLOCK
+════════════════════════════════════════════ -->
+<section class="py-20" style="background:var(--bg);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-black text-white mb-6 text-center">Por Que Escolher o <span class="gradient-text">Super Doramas</span>?</h2>
+    <div class="text-gray-400 text-sm leading-relaxed space-y-4">
+      <p>O <strong class="text-gray-200">Super Doramas</strong> nasceu de uma necessidade real dos dorameiros brasileiros: um lugar centralizado para organizar, rastrear e descobrir <strong class="text-gray-200">Doramas Online</strong> sem depender de anotações espalhadas. Ao contrário de apps de streaming, o Super Doramas é um <strong class="text-gray-200">organizador e tracker de biblioteca pessoal</strong> — uma ferramenta que respeita onde você já assiste e potencializa sua experiência.</p>
+      <p>Para os fãs de <strong class="text-gray-200">Doramas Coreanos</strong> (K-Dramas), o app oferece filtros por idioma e keywords ultra-detalhadas do TMDB, tornando a descoberta de novas séries algo prazeroso. Para os amantes de <strong class="text-gray-200">Doramas Chineses</strong> (C-Dramas), há suporte completo a épicos históricos, romances modernos e fantasias — com todo o catálogo organizado na ponta dos dedos.</p>
+      <p>O sistema de <strong class="text-gray-200">XP e Ranks</strong> torna cada interação com o app mais recompensadora. Marque episódios, escreva reviews detalhadas e faça login diário para ganhar pontos e subir do Bronze ao Diamante. O <strong class="text-gray-200">Hall da Fama</strong> exibe os maiores dorameiros do Brasil, e as conquistas especiais ficam expostas no seu perfil.</p>
+      <p>O <strong class="text-gray-200">VIP</strong> remove anúncios, dobra o XP e habilita sincronização prioritária — mas você também pode ganhar 24h de VIP grátis toda semana apenas compartilhando o app com amigos. A comunidade cresce junto com o app.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer style="background:var(--bg2);border-top:1px solid var(--border);" class="py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+          <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7C3AED,#2563EB);display:flex;align-items:center;justify-content:center;box-shadow:0 0 16px rgba(124,58,237,0.5);flex-shrink:0;">
+            <span style="color:#fff;font-weight:900;font-size:18px;line-height:1;font-family:'Inter',sans-serif;">S</span>
+          </div>
+          <span style="color:#fff;font-weight:800;font-size:1.125rem;line-height:1;white-space:nowrap;">Super<span style="background:linear-gradient(135deg,#C084FC,#818CF8,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Doramas</span></span>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">
+          O melhor organizador e tracker de <strong class="text-gray-400">Doramas</strong>. Biblioteca pessoal, XP, ranks, reviews e comunidade — tudo para o dorameiro de verdade.
+        </p>
+        <div class="flex gap-3">
+          <a href="https://play.google.com/store/apps/details?id=com.superdoramas.biblioteca" class="btn btn-primary px-4 py-2 text-xs">Google Play</a>
+          <a href="https://patronreaction.com/superdoramas.apk" class="btn btn-outline px-4 py-2 text-xs">Download APK</a>
+        </div>
+      </div>
+
+      <!-- Categorias -->
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-4">Categorias</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-gray-500 text-sm hover:text-purple-300 transition-colors">K-Dramas</a></li>
+          <li><a href="#" class="text-gray-500 text-sm hover:text-purple-300 transition-colors">C-Dramas</a></li>
+          <li><a href="#" class="text-gray-500 text-sm hover:text-purple-300 transition-colors">Doramas Coreanos</a></li>
+          <li><a href="#" class="text-gray-500 text-sm hover:text-purple-300 transition-colors">Doramas Chineses</a></li>
+          <li><a href="#" class="text-gray-500 text-sm hover:text-purple-300 transition-colors">Doramas Clássicos</a></li>
+        </ul>
+      </div>
+
+      <!-- Funcionalidades -->
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-4">Funcionalidades</h4>
+        <ul class="space-y-2">
+          <li><a href="#biblioteca"  class="text-gray-500 text-sm hover:text-purple-300 transition-colors">Biblioteca Pessoal</a></li>
+          <li><a href="#descobrir"   class="text-gray-500 text-sm hover:text-purple-300 transition-colors">Filtros TMDB</a></li>
+          <li><a href="#gamificacao" class="text-gray-500 text-sm hover:text-purple-300 transition-colors">XP &amp; Ranks</a></li>
+          <li><a href="#vip"         class="text-gray-500 text-sm hover:text-purple-300 transition-colors">VIP</a></li>
+          <li><a href="#comunidade"  class="text-gray-500 text-sm hover:text-purple-300 transition-colors">Chat &amp; Comunidade</a></li>
+          <li><a href="blog.html"    class="text-gray-500 text-sm hover:text-purple-300 transition-colors">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider mb-6"></div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600">
+      <p>© 2026 Super Doramas. Todos os direitos reservados.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-gray-400 transition-colors">Privacidade</a>
+        <a href="#" class="hover:text-gray-400 transition-colors">Termos de Uso</a>
+        <a href="#" class="hover:text-gray-400 transition-colors">Contato</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════ -->
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Close mobile menu on link click
+  document.querySelectorAll('#mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
